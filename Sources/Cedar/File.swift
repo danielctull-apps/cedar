@@ -12,8 +12,6 @@ struct File: ExpressibleByArgument {
         guard let directory = Process().currentDirectoryURL else { return nil }
         url = URL(fileURLWithPath: argument, relativeTo: directory)
         name = url.lastPathComponent
-        print(url)
-        print(name)
     }
 }
 
