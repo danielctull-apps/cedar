@@ -5,8 +5,9 @@ import SwiftUI
 
 struct File: ExpressibleByArgument {
 
-    fileprivate let url: URL
+    private let url: URL
     let name: String
+
     init?(argument: String) {
         guard let directory = Process().currentDirectoryURL else { return nil }
         url = URL(fileURLWithPath: argument, relativeTo: directory)
@@ -16,25 +17,20 @@ struct File: ExpressibleByArgument {
     }
 }
 
-extension FileManager {
+extension File {
 
-    func binding(for file: File) -> Binding<String> {
-        Binding(get: contents(of: file),
-                set: setContents(of: file))
+    var binding: Binding<String> {
+        Binding(get: content, set: setContent)
     }
 
-    private func contents(of file: File) -> () -> String {
-        {
-            guard let data = try? Data(contentsOf: file.url) else { return "" }
-            guard let string = String(data: data, encoding: .utf8) else { return "" }
-            return string
-        }
+    private func content() -> String {
+        guard let data = try? Data(contentsOf: url) else { return "" }
+        guard let string = String(data: data, encoding: .utf8) else { return "" }
+        return string
     }
 
-    private func setContents(of file: File) -> (String) -> () {
-        { contents in
-            guard let data = contents.data(using: .utf8) else { return }
-            try? data.write(to: file.url)
-        }
+    private func setContent(_ content: String) {
+        guard let data = content.data(using: .utf8) else { return }
+        try? data.write(to: url)
     }
 }

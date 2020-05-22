@@ -19,8 +19,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
 
     func applicationDidFinishLaunching(_ notification: Notification) {
 
-        let text = FileManager.default.binding(for: file)
-        let editor = Editor(text: text)
+        let editor = Editor(text: file.binding)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
 
         window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 480, height: 300),
