@@ -3,8 +3,8 @@ import ArgumentParser
 
 struct File: ExpressibleByArgument {
 
-    private let rawValue: String
+    let name: String
     init?(argument: String) {
-        self.rawValue = argument
+        self.name = argument
     }
 }
