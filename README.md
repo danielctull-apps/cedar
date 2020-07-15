@@ -12,6 +12,22 @@ I recommend using the awesome utility [Mint](https://github.com/yonaskolb/Mint) 
 mint install danielctull-apps/cedar
 ```
 
+## Usage
+
+cedar can only be run from the command line and it takes just one argument, the file you wish to open.
+
+```sh
+cedar <file>
+```
+
+### Using as git editor
+
+cedar is designed to open really fast so is perfect for using as a git editor. If you wish to use cedar as your editor of choice when running those beloved commands [`git commit`](https://www.git-scm.com/docs/git-commit) or [`git rebase -i`](https://www.git-scm.com/docs/git-rebase), perform the following command and it will be set in your global [git configuration](https://www.git-scm.com/book/en/v2/Customizing-Git-Git-Configuration) file.
+
+```sh
+git config --global core.editor cedar
+```
+
 ## Thanks
 
 There's code in this little app that takes heavy inspiration from the following. Thank you so much. 🧡
