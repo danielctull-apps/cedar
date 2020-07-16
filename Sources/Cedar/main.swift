@@ -12,6 +12,7 @@ struct Cedar: ParsableCommand {
         NSApp.setActivationPolicy(.accessory)
         let delegate = AppDelegate(file: file)
         app.delegate = delegate
+        app.menu = .cedar
         app.run()
     }
 }
