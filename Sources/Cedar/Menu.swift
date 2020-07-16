@@ -16,6 +16,9 @@ extension NSMenu {
         let edit = NSMenuItem()
         edit.submenu = NSMenu(title: "Edit")
         edit.submenu?.items = [
+            NSMenuItem(title: "Undo", action: #selector(UndoManager.undo), keyEquivalent: "z"),
+            NSMenuItem(title: "Redo", action: #selector(UndoManager.redo), keyEquivalent: "Z"),
+            NSMenuItem.separator(),
             NSMenuItem(title: "Cut", action: #selector(NSText.cut(_:)), keyEquivalent: "x"),
             NSMenuItem(title: "Copy", action: #selector(NSText.copy(_:)), keyEquivalent: "c"),
             NSMenuItem(title: "Paste", action: #selector(NSText.paste(_:)), keyEquivalent: "v"),
