@@ -37,6 +37,7 @@ private struct Representable: NSViewRepresentable {
 
     func updateNSView(_ view: ScrollingTextView, context: Context) {
         view.text = text
+        view.textView.setSelectedRange(NSRange(location: 0, length: 0))
     }
 }
 
