@@ -118,6 +118,10 @@ private final class ScrollingTextView: NSView {
         scrollView.documentView = textView
     }
 
+    override func viewDidMoveToWindow() {
+        window?.makeFirstResponder(textView)
+    }
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
