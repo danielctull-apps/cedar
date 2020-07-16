@@ -1,6 +1,6 @@
 # cedar
 
-A tiny text graphical editor which can be launched from the command line.
+A tiny graphical text editor for use from the command line.
 
 ![tiny-graphical-edtior](Images/tiny-graphical-edtior.png)
 
