@@ -97,6 +97,7 @@ private final class ScrollingTextView: NSView {
         textView.backgroundColor = .textBackgroundColor
         textView.drawsBackground = true
         textView.font = font
+        textView.isRichText = false
         textView.isEditable = true
         textView.isHorizontallyResizable = false
         textView.isVerticallyResizable  = true
