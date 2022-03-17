@@ -2,6 +2,7 @@
 import AppKit
 import ArgumentParser
 
+@main
 struct Cedar: ParsableCommand {
 
     @Argument(help: "The file to open.")
@@ -16,5 +17,3 @@ struct Cedar: ParsableCommand {
         app.run()
     }
 }
-
-Cedar.main()
