@@ -14,7 +14,7 @@ let package = Package(
         .package(url: "https://github.com/apple/swift-argument-parser", from: "1.0.0"),
     ],
     targets: [
-        .target(name: "Cedar", dependencies: [
+        .executableTarget(name: "Cedar", dependencies: [
             .product(name: "ArgumentParser", package: "swift-argument-parser"),
         ]),
     ]
