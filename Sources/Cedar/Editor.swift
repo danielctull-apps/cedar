@@ -3,7 +3,8 @@ import SwiftUI
 
 struct Editor: View {
 
-    private let font = NSFont.monospacedSystemFont(ofSize: 17, weight: .light)
+    private let nsFont = NSFont.monospacedSystemFont(ofSize: 17, weight: .light)
+    private let font = Font.system(size: 17, weight: .light, design: .monospaced)
 
     private let text: Binding<String>
     init(text: Binding<String>) {
@@ -15,8 +16,15 @@ struct Editor: View {
         ZStack {
             Color.white
                 .edgesIgnoringSafeArea(.all)
-            TextView(text: text, font: font)
-                .padding()
+            if #available(OSX 11.0, *) {
+                TextEditor(text: text)
+                    .disableAutocorrection(false)
+                    .font(font)
+                    .edgesIgnoringSafeArea([.leading, .trailing, .bottom])
+            } else {
+                TextView(text: text, font: nsFont)
+                    .padding()
+            }
         }
     }
 }
